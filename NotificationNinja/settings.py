@@ -23,7 +23,7 @@ SECRET_KEY = '_sie9r-if278%cim0z%_+4-x@!lq9+4$9sw$1h(ot!(#(ml3)^'
 # SECURITY WARNING: don't run with debug turned on in production!
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATIC_URL = '/static/'
+STATIC_URL = '/static/true'
 
 
 DEBUG = True

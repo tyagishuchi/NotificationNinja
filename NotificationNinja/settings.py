@@ -21,9 +21,40 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = '_sie9r-if278%cim0z%_+4-x@!lq9+4$9sw$1h(ot!(#(ml3)^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+DJANGO_ROOT = dirname(dirname(abspath(__file__)))
+#DJANGO_ROOT = os.path.abspath(os.path.dirname(__file__))
+CONFIG_ROOT = dirname(abspath(__file__))
+########## MEDIA CONFIGURATION
+# Absolute filesystem path to the directory that will hold user-uploaded files.
+MEDIA_ROOT = normpath(join(DJANGO_ROOT, 'media')).replace('\\','/')
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATIC_URL = '/static/true'
+# URL that handles the media served from MEDIA_ROOT.
+MEDIA_URL = '/media/'
+########## END MEDIA CONFIGURATION
+
+########## STATIC FILE CONFIGURATION
+# Absolute path to the directory assets files should be collected to. Don't put
+# anything in this directory yourself; store your assets files in apps' assets/
+# subdirectories and in STATICFILES_DIRS.
+STATIC_ROOT = normpath(join(DJANGO_ROOT, 'final_static')).replace('\\','/')
+
+# URL prefix for assets files.
+STATIC_URL = '/static/'
+
+
+# Additional locations of assets files.
+STATICFILES_DIRS = (
+    normpath(join(DJANGO_ROOT, 'static')),
+    )
+
+# List of finder classes that know how to find assets files in various
+# locations.
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    #'django.contrib.staticfiles.finders.DefaultStorageFinder',
+    )
+########## END STATIC FILE CONFIGURATION
 
 
 DEBUG = True
